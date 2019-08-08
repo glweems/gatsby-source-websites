@@ -1,6 +1,6 @@
 {
     "name": "gatsby-source-websites",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "a starter repo for creating gatsby plugins in typescript",
     "main": "gatsby-node.js",
     "scripts": {
@@ -21,8 +21,10 @@
     "keywords": [
         "gatsby",
         "gatsby-plugin",
-        "gatsby-source-plugin",
-        "behance"
+        "gatsby-source-websites",
+        "websites",
+        "website",
+        "screenshot"
     ],
     "author": "Garrett Weems <gwgraphicdesign@gmail.com>",
     "license": "MIT",
