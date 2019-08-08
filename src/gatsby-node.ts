@@ -29,7 +29,7 @@ export const sourceNodes = async (
                 .src(website.url, sizes, { crop: crop })
                 .dest(localDir)
                 .run();
-            const filePath = path.resolve(localDir, website.name + '.png');
+            const filePath = path.resolve(localDir, website.slug + '.png');
 
             await createNode({
                 ...website,
