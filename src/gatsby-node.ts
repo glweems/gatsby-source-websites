@@ -6,6 +6,7 @@ import * as fs from 'fs';
 
 interface Website {
     name: string;
+    slug: string;
     url: string | undefined;
     description: string | undefined;
     repo: string | undefined;

@@ -19,13 +19,13 @@
 ## Install
 
 ```sh
-npm install glweems/gatsby-source-websites
+npm install gatsby-source-websites
 ```
 
 or
 
 ```sh
-yarn add glweems/gatsby-source-websites
+yarn add gatsby-source-websites
 ```
 
 ## Setup
@@ -38,7 +38,8 @@ yarn add glweems/gatsby-source-websites
       options: {
         websites: [
           {
-            name: `my-super-fresh-website`,
+            name: `My Super Fresh Website`,
+            slug: `my-super-fresh-website`,
             url: `https://superfreshsite.com`,
 
             // Optional
