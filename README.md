@@ -1,6 +1,5 @@
-<h1 align="center">Welcome to gatsby-plugin-template-typescript 👋</h1>
+<h1 align="center">Welcome to gatsby-source-websites 👋</h1>
 <p>
-
   <img alt="Version" src="https://img.shields.io/badge/version-0.0.1-blue.svg?cacheSeconds=2592000" />
   <a href="https://github.com/glweems/gatsby-plugin-template-typescript#readme">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" target="_blank" />
@@ -13,48 +12,64 @@
   </a>
 </p>
 
-> A template repo for creating gatsby plugins using typescript
+> a starter repo for creating gatsby plugins in typescript
 
 ### 🏠 [Homepage](https://github.com/glweems/gatsby-plugin-template-typescript.git)
 
 ## Install
 
 ```sh
-git clone git@github.com:glweems/gatsby-plugin-typescript.git <NAME-OF-YOUR-PLUGIN>
+npm install glweems/gatsby-source-websites
 ```
 
-Install dependencies
+or
 
 ```sh
-cd <NAME-OF-YOUR-PLUGIN> && yarn
+yarn add glweems/gatsby-source-websites
 ```
 
-## Scripts
+## Setup
 
-Compile typescript to javascript
+```javascript
+{
+  plugins: [
+    {
+      resolve: `gatsby-source-websites`
+      options: {
+        websites: [
+          {
+            name: `my-super-fresh-website`,
+            url: `https://superfreshsite.com`,
 
-```sh
-yarn build
+            // Optional
+            description: `This is a super fresh site I build because I'm super fresh`,
+            repo: `https://github.com/glweems/superfreshsite`
+          },
+          {
+            // Add another website with same info
+          }
+        ]
+      }
+    }
+  ]
+}
 ```
 
-Compile typescript in watch mode
+## Usage
 
-```sh
-yarn watch
-```
+Query info through graphql
 
-## Linting
-
-Lint your project
-
-```sh
-yarn lint
-```
-
-Lint project and fix all possible problems
-
-```sh
-yarn lint:fix
+```graphql
+query MyWebsites {
+    allWebsites {
+        nodes {
+            name
+            url
+            description
+            repo
+        }
+    }
+}
 ```
 
 ## Author
@@ -62,7 +77,6 @@ yarn lint:fix
 👤 **Garrett Weems <gwgraphicdesign@gmail.com>**
 
 -   Github: [@glweems](https://github.com/glweems)
--   Website: [@glweems](https://glweems.com)
 
 ## 🤝 Contributing
 

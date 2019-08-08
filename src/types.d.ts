@@ -1,6 +1,9 @@
+declare module 'gatsby-source-filesystem/create-file-node';
+declare module 'bluebird';
+
 interface GatsbyActions {
     actions: {
-        createNode(): any;
+        createNode(details: object): any;
     };
     store: {
         getState(): {
@@ -15,5 +18,11 @@ interface GatsbyActions {
         info(msg: string): void;
         warn(msg: string): void;
         error(msg: string): void;
+        activityTimer(
+            job: string
+        ): {
+            start(): void;
+            end(): void;
+        };
     };
 }
