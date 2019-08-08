@@ -1,0 +1,40 @@
+{
+    "name": "gatsby-plugin-template-typescript",
+    "version": "0.0.1",
+    "description": "a starter repo for creating gatsby plugins in typescript",
+    "main": "gatsby-node.js",
+    "scripts": {
+        "build": "tsc",
+        "prepare": "tsc",
+        "watch": "tsc -w",
+        "lint": "eslint --ignore-path .gitignore \"**/*.{ts,tsx,js}\"",
+        "lint:fix": "eslint --ignore-path .gitignore \"**/*.{ts,tsx,js}\" --fix"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/glweems/gatsby-plugin-template-typescript"
+    },
+    "bugs": {
+        "url": "https://github.com/glweems/gatsby-plugin-template-typescript/issues"
+    },
+    "homepage": "https://github.com/glweems/gatsby-plugin-template-typescript.git",
+    "keywords": [
+        "gatsby",
+        "gatsby-plugin",
+        "gatsby-source-plugin",
+        "behance"
+    ],
+    "author": "Garrett Weems <gwgraphicdesign@gmail.com>",
+    "license": "MIT",
+    "peerDependencies": {
+        "gatsby": ">=2"
+    },
+    "devDependencies": {
+        "@types/node": "^12.6.8",
+        "@typescript-eslint/eslint-plugin": "^1.13.0",
+        "@typescript-eslint/parser": "^1.13.0",
+        "eslint": "^6.1.0",
+        "eslint-plugin-react": "^7.14.3",
+        "typescript": "^3.5.3"
+    }
+}
