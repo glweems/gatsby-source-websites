@@ -2,7 +2,6 @@ import * as path from 'path';
 const Pageres = require('pageres');
 import { createFileNode } from 'gatsby-source-filesystem/create-file-node';
 import * as Bluebird from 'bluebird';
-import * as fs from 'fs';
 
 interface Website {
     name: string;
@@ -14,35 +13,30 @@ interface Website {
 interface Options {
     websites: Website[];
     sizes: string[];
+    delay: number;
     crop: boolean;
 }
 
 export const sourceNodes = async (
     { actions: { createNode }, store, createNodeId, createContentDigest, reporter }: GatsbyActions,
-    { websites, sizes = ['1920x1080'], crop = true }: Options
+    { websites, sizes = ['1920x1080'], delay = 2, crop = true }: Options
 ): Promise<void> => {
     const localDir = path.join(store.getState().program.directory, '.cache', 'gatsby-source-websites');
 
-    const alreadyDownloaded = (path: fs.PathLike) => (fs.existsSync(path) ? 'true' : 'false');
-
     const createWebsiteNodes = async () =>
         await websites.map(async website => {
-            await new Pageres({ delay: 2, filename: website.name })
+            await new Pageres({ delay, filename: website.slug })
                 .src(website.url, sizes, { crop: crop })
                 .dest(localDir)
                 .run();
             const filePath = path.resolve(localDir, website.name + '.png');
-            reporter.info(filePath);
-
-            reporter.warn(alreadyDownloaded(filePath));
 
             await createNode({
-                name: website.name,
-                url: website.url,
+                ...website,
                 id: createNodeId(`website-${website.name}`),
                 internal: {
                     type: 'website',
-                    contentDigest: createContentDigest(website)
+                    contentDigest: createContentDigest({ ...website })
                 }
             });
 

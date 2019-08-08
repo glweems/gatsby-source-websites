@@ -50,6 +50,15 @@ yarn add gatsby-source-websites
             // Add another website with same info
           }
         ]
+        // Website screenshot options
+        sizes: ['1920x1080','1920x1080'],
+        delay: 10,
+        crop: false,
+
+        // Defaults are
+        // sizes: ['1920x1080'],
+        // delay: 2,
+        // crop: true,
       }
     }
   ]
@@ -65,6 +74,7 @@ query MyWebsites {
     allWebsites {
         nodes {
             name
+            slug
             url
             description
             repo
