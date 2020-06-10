@@ -32,7 +32,7 @@
         "gatsby": ">=2"
     },
     "devDependencies": {
-        "@types/node": "^12.6.8",
+        "@types/node": "^14.0.13",
         "@typescript-eslint/eslint-plugin": "^1.13.0",
         "@typescript-eslint/parser": "^1.13.0",
         "eslint": "^6.1.0",
